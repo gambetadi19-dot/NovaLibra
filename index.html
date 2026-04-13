@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NovaLibra | Author Website Concept</title>
+  <!-- Google Fonts + Tailwind CSS v3 + Font Awesome Icons (optional but adds polish) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a; /* fallback */
+    }
+    /* Custom gradient glow effects */
+    .hero-glow {
+      background: radial-gradient(circle at 70% 20%, rgba(251,191,36,0.12), transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(59,130,246,0.1), transparent 55%);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.4);
+    }
+    ::selection {
+      background: #fbbf24;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-white antialiased">
+
+  <div class="min-h-screen bg-slate-950 text-white">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-30 border-b border-white/10 bg-slate-950/80 backdrop-blur-md transition-all duration-200">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-amber-300 font-semibold">Author Website Concept</p>
+          <h1 class="text-xl font-semibold tracking-tight">NovaLibra</h1>
+        </div>
+        <nav class="hidden gap-7 text-sm font-medium text-slate-300 md:flex">
+          <a href="#about" class="transition duration-200 hover:text-amber-300 hover:-translate-y-0.5">About</a>
+          <a href="#books" class="transition duration-200 hover:text-amber-300 hover:-translate-y-0.5">Books</a>
+          <a href="#why" class="transition duration-200 hover:text-amber-300 hover:-translate-y-0.5">Why This Site</a>
+          <a href="#contact" class="transition duration-200 hover:text-amber-300 hover:-translate-y-0.5">Contact</a>
+        </nav>
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="text-white focus:outline-none text-2xl">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-white/10 px-6 py-4 flex flex-col gap-3">
+        <a href="#about" class="py-2 text-slate-200 hover:text-amber-300 transition">About</a>
+        <a href="#books" class="py-2 text-slate-200 hover:text-amber-300 transition">Books</a>
+        <a href="#why" class="py-2 text-slate-200 hover:text-amber-300 transition">Why This Site</a>
+        <a href="#contact" class="py-2 text-slate-200 hover:text-amber-300 transition">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section with enhanced gradients -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(251,191,36,0.2),transparent_40%),radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.12),transparent_50%)]"></div>
+        <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-28 lg:px-8">
+          <div>
+            <p class="mb-4 text-sm uppercase tracking-[0.35em] text-amber-300 font-semibold">Books. Ideas. Influence.</p>
+            <h2 class="max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+              A refined online home for <span class="text-amber-300">NovaLibra</span> and his books.
+            </h2>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+              A professional author website designed to introduce readers to the author, showcase published books, and direct visitors to Amazon with confidence.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#books" class="rounded-2xl bg-amber-300 px-6 py-3 font-semibold text-slate-950 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-amber-300/20">
+                Explore Books
+              </a>
+              <a href="#about" class="rounded-2xl border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                Meet the Author
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-4">
+            <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 transition-all duration-300 hover:scale-[1.01]">
+              <div class="rounded-[24px] bg-gradient-to-br from-amber-300 via-orange-400 to-rose-500 p-8 text-slate-950">
+                <p class="text-sm font-bold uppercase tracking-[0.3em]">Featured Author Brand</p>
+                <h3 class="mt-5 text-3xl font-bold tracking-tight">Elegant. Literary. Professional.</h3>
+                <p class="mt-4 max-w-md text-base leading-7 text-slate-900/85">
+                  This concept is built to feel credible, warm, and modern so readers instantly trust the author and feel invited to discover his work.
+                </p>
+              </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[24px] border border-white/10 bg-slate-900/70 p-6 backdrop-blur-sm card-hover">
+                <p class="text-sm uppercase tracking-[0.25em] text-sky-300 font-medium"><i class="fas fa-bullhorn mr-1"></i> Primary Goal</p>
+                <p class="mt-3 text-2xl font-semibold">Promote books effectively</p>
+              </div>
+              <div class="rounded-[24px] border border-white/10 bg-slate-900/70 p-6 backdrop-blur-sm card-hover">
+                <p class="text-sm uppercase tracking-[0.25em] text-emerald-300 font-medium"><i class="fas fa-chart-line mr-1"></i> Long-Term Goal</p>
+                <p class="mt-3 text-2xl font-semibold">Build the author brand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="mx-auto max-w-7xl px-6 py-20 lg:px-8 scroll-mt-20">
+        <div class="grid gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-semibold">About the Author</p>
+            <h3 class="mt-4 text-3xl font-bold md:text-4xl tracking-tight">Present the person behind the books with authority and warmth.</h3>
+            <p class="mt-6 text-lg leading-8 text-slate-300">
+              The website should introduce NovaLibra as a respected literary voice, highlight his work, and create a strong first impression for new readers, collaborators, event organisers, and media contacts.
+            </p>
+            <p class="mt-4 text-lg leading-8 text-slate-300">
+              This section can later include a polished biography, achievements, academic profile, writing focus, and a professional portrait.
+            </p>
+            <div class="mt-8 flex items-center gap-3 text-amber-300/80">
+              <i class="fas fa-quote-left text-2xl"></i>
+              <span class="italic text-slate-200">"Storytelling that bridges cultures and emotions."</span>
+            </div>
+          </div>
+
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-7 shadow-xl">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-400 font-semibold"><i class="far fa-star mr-1"></i> Suggested homepage highlights</p>
+            <div class="mt-6 space-y-4">
+              <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-4 text-slate-200 flex items-center gap-3 transition hover:bg-slate-800">
+                <i class="fas fa-check-circle text-amber-300 text-lg"></i> Author profile that builds trust and credibility
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-4 text-slate-200 flex items-center gap-3 transition hover:bg-slate-800">
+                <i class="fas fa-check-circle text-amber-300 text-lg"></i> Dedicated book pages with Amazon purchase links
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-4 text-slate-200 flex items-center gap-3 transition hover:bg-slate-800">
+                <i class="fas fa-check-circle text-amber-300 text-lg"></i> Clean, modern layout designed for promotion
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-4 text-slate-200 flex items-center gap-3 transition hover:bg-slate-800">
+                <i class="fas fa-check-circle text-amber-300 text-lg"></i> Ready for future books, media features, and events
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Books Showcase -->
+      <section id="books" class="border-y border-white/10 bg-white/[0.03] px-6 py-20 scroll-mt-20">
+        <div class="mx-auto max-w-7xl lg:px-8">
+          <div class="max-w-2xl">
+            <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-semibold">Books Showcase</p>
+            <h3 class="mt-4 text-3xl font-bold md:text-4xl tracking-tight">A section designed to turn curiosity into clicks.</h3>
+            <p class="mt-5 text-lg leading-8 text-slate-300">
+              Each book should have a clean visual card, a short summary, and a direct Amazon call-to-action. This keeps the journey simple: discover, connect, buy.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-8 lg:grid-cols-3">
+            <!-- Book 1: Worlds Apart -->
+            <div class="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/90 shadow-xl shadow-black/20 transition-all duration-300 hover:scale-[1.02] card-hover">
+              <div class="h-64 p-6 bg-gradient-to-br from-sky-500 to-indigo-700 relative">
+                <div class="inline-flex rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-sm">
+                  Featured Novel
+                </div>
+                <div class="mt-10 max-w-[14rem] rounded-2xl bg-black/25 p-5 backdrop-blur-md">
+                  <p class="text-sm uppercase tracking-[0.25em] text-white/80">NovaLibra</p>
+                  <h4 class="mt-3 text-2xl font-bold leading-tight text-white">Worlds Apart</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-lg font-semibold text-white">A powerful story of loss, family, and betrayal.</p>
+                <p class="mt-4 leading-7 text-slate-300">Set against the backdrop of a close-knit African community, this novel explores the choices that divide people and the emotional cost of those divisions.</p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a href="#" class="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950 transition-all hover:bg-amber-100 hover:-translate-y-0.5 inline-flex items-center gap-2 shadow-md"><i class="fab fa-amazon"></i> Buy on Amazon</a>
+                  <button class="rounded-2xl border border-white/15 px-5 py-3 font-semibold text-white transition hover:bg-white/10">Learn More</button>
+                </div>
+              </div>
+            </div>
+            <!-- Book 2: Margaret Hamata -->
+            <div class="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/90 shadow-xl shadow-black/20 transition-all duration-300 hover:scale-[1.02] card-hover">
+              <div class="h-64 p-6 bg-gradient-to-br from-amber-400 to-orange-600 relative">
+                <div class="inline-flex rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-sm">
+                  Reader Favourite
+                </div>
+                <div class="mt-10 max-w-[14rem] rounded-2xl bg-black/25 p-5 backdrop-blur-md">
+                  <p class="text-sm uppercase tracking-[0.25em] text-white/80">NovaLibra</p>
+                  <h4 class="mt-3 text-2xl font-bold leading-tight text-white">Margaret Hamata: A Woman of Courage</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-lg font-semibold text-white">A story of resilience, courage, and hope.</p>
+                <p class="mt-4 leading-7 text-slate-300">A moving work centered on determination, prejudice, dreams, and the strength to rise above difficult circumstances.</p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a href="#" class="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950 transition-all hover:bg-amber-100 hover:-translate-y-0.5 inline-flex items-center gap-2 shadow-md"><i class="fab fa-amazon"></i> Buy on Amazon</a>
+                  <button class="rounded-2xl border border-white/15 px-5 py-3 font-semibold text-white transition hover:bg-white/10">Learn More</button>
+                </div>
+              </div>
+            </div>
+            <!-- Book 3: The First Cut -->
+            <div class="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/90 shadow-xl shadow-black/20 transition-all duration-300 hover:scale-[1.02] card-hover">
+              <div class="h-64 p-6 bg-gradient-to-br from-emerald-500 to-teal-700 relative">
+                <div class="inline-flex rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-sm">
+                  New Release
+                </div>
+                <div class="mt-10 max-w-[14rem] rounded-2xl bg-black/25 p-5 backdrop-blur-md">
+                  <p class="text-sm uppercase tracking-[0.25em] text-white/80">NovaLibra</p>
+                  <h4 class="mt-3 text-2xl font-bold leading-tight text-white">The First Cut</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-lg font-semibold text-white">Romance, jealousy, and devastating consequences.</p>
+                <p class="mt-4 leading-7 text-slate-300">What begins as a dreamy collegiate romance turns into a tense emotional journey shaped by competing desires and painful choices.</p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a href="#" class="rounded-2xl bg-white px-5 py-3 font-semibold text-slate-950 transition-all hover:bg-amber-100 hover:-translate-y-0.5 inline-flex items-center gap-2 shadow-md"><i class="fab fa-amazon"></i> Buy on Amazon</a>
+                  <button class="rounded-2xl border border-white/15 px-5 py-3 font-semibold text-white transition hover:bg-white/10">Learn More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-12 text-center text-sm text-slate-400 border-t border-white/10 pt-8 flex justify-center gap-6">
+            <span><i class="fas fa-star text-amber-300 text-xs"></i> All links lead to Amazon</span>
+            <span><i class="fas fa-book-open text-sky-300 text-xs"></i> Updated editions available</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why This Site (Value propositions) -->
+      <section id="why" class="mx-auto max-w-7xl px-6 py-20 lg:px-8 scroll-mt-20">
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-7 transition-all duration-300 hover:bg-white/10 hover:border-amber-300/30">
+            <div class="w-12 h-12 rounded-full bg-amber-300/20 flex items-center justify-center mb-4"><i class="fas fa-eye text-amber-300 text-xl"></i></div>
+            <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-medium">Visibility</p>
+            <h4 class="mt-4 text-2xl font-semibold">Stronger than relying on Amazon alone</h4>
+            <p class="mt-4 leading-7 text-slate-300">A dedicated website gives the author a professional digital home that feels more memorable and trustworthy.</p>
+          </div>
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-7 transition-all duration-300 hover:bg-white/10 hover:border-amber-300/30">
+            <div class="w-12 h-12 rounded-full bg-amber-300/20 flex items-center justify-center mb-4"><i class="fas fa-tag text-amber-300 text-xl"></i></div>
+            <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-medium">Branding</p>
+            <h4 class="mt-4 text-2xl font-semibold">One clear identity for all books</h4>
+            <p class="mt-4 leading-7 text-slate-300">Readers can see the full body of work in one place instead of discovering titles one by one.</p>
+          </div>
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-7 transition-all duration-300 hover:bg-white/10 hover:border-amber-300/30">
+            <div class="w-12 h-12 rounded-full bg-amber-300/20 flex items-center justify-center mb-4"><i class="fas fa-chart-simple text-amber-300 text-xl"></i></div>
+            <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-medium">Growth</p>
+            <h4 class="mt-4 text-2xl font-semibold">Ready for future books and events</h4>
+            <p class="mt-4 leading-7 text-slate-300">The site can later include a blog, media kit, speaking page, reviews, and a mailing list.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Next Step Section -->
+      <section id="contact" class="px-6 pb-24 lg:px-8 scroll-mt-20">
+        <div class="mx-auto max-w-5xl rounded-[32px] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-12 shadow-2xl backdrop-blur-sm">
+          <p class="text-sm uppercase tracking-[0.3em] text-amber-300 font-semibold"><i class="far fa-paper-plane mr-1"></i> Next Step</p>
+          <h3 class="mt-4 text-3xl font-bold md:text-4xl tracking-tight">Turn this concept into the real author website.</h3>
+          <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+            Replace the placeholder text, portrait, and book buttons with the author’s final biography, official cover images, and direct Amazon links. From there, this layout can be converted into a live HTML, WordPress, or React website.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <button class="rounded-2xl bg-amber-300 px-6 py-3 font-semibold text-slate-950 transition-all hover:-translate-y-1 hover:shadow-lg flex items-center gap-2"><i class="fas fa-pen-fancy"></i> Add Real Content</button>
+            <button class="rounded-2xl border border-white/20 px-6 py-3 font-semibold text-white transition-all hover:bg-white/10 hover:-translate-y-1 flex items-center gap-2"><i class="fas fa-rocket"></i> Launch Website Plan</button>
+          </div>
+          <div class="mt-8 pt-6 border-t border-white/10 text-slate-400 text-sm flex justify-between flex-wrap gap-3">
+            <span><i class="far fa-envelope"></i> author@novalibra.com (placeholder)</span>
+            <span><i class="fab fa-twitter"></i> @NovaLibra</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 text-center text-sm text-slate-400">
+      <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <p>© 2025 NovaLibra — Literary works. All rights reserved.</p>
+        <div class="flex gap-5 text-slate-400">
+          <a href="#" class="hover:text-amber-300 transition"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-amber-300 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-amber-300 transition"><i class="fab fa-goodreads-g"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Simple mobile menu toggle script -->
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Close menu when clicking a link
+      const links = mobileMenu.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+    // Optional: subtle scroll highlight, just for user experience
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a, #mobileMenu a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.scrollY + 100;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('text-amber-300');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('text-amber-300');
+        } else if (!current && link.getAttribute('href') === '#about') {
+          // default none
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "novalibra-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test --test-isolation=none tests/**/*.test.js",
+    "test:admin": "node --test --test-isolation=none tests/admin/*.test.js",
+    "test:author": "node --test --test-isolation=none tests/books/*.test.js",
+    "test:auth": "node --test --test-isolation=none tests/auth/*.test.js && node --test --test-isolation=none tests/api-security.test.js",
+    "test:books": "node --test --test-isolation=none tests/books/*.test.js",
+    "test:communications": "node --test --test-isolation=none tests/communications/*.test.js",
+    "test:demo-data": "node --test --test-isolation=none tests/demo/*.test.js",
+    "test:engagement": "node --test --test-isolation=none tests/engagement/*.test.js",
+    "test:reader": "node --test --test-isolation=none tests/engagement/*.test.js && node --test --test-isolation=none tests/communications/*.test.js",
+    "test:permissions": "node --test --test-isolation=none tests/permissions/*.test.js && node --test --test-isolation=none tests/api-security.test.js",
+    "test:smoke": "node --test --test-isolation=none tests/smoke/*.test.js",
+    "coverage": "c8 --reporter=text --reporter=html --reporter=lcov --reporter=json-summary --reports-dir coverage node --test --test-isolation=none tests/**/*.test.js",
+    "coverage:critical": "c8 --reporter=text --reporter=html --reports-dir coverage-critical node --test --test-isolation=none tests/auth/*.test.js tests/permissions/*.test.js tests/api-security.test.js tests/books/*.test.js tests/communications/*.test.js tests/engagement/*.test.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:push": "prisma db push",
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "socket.io": "^4.8.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3",
+    "prisma": "^6.6.0"
+  }
+}

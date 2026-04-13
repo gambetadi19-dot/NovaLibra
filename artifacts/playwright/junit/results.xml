@@ -1,0 +1,10 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="12.410136">
+<testsuite name="demo\demo-data.spec.js" timestamp="2026-04-13T22:27:55.825Z" hostname="" tests="3" failures="0" skipped="0" time="8.448" errors="0">
+<testcase name="public seeded content makes the homepage and discovery views feel demo-ready" classname="demo\demo-data.spec.js" time="2.392">
+</testcase>
+<testcase name="seeded reader account lands in a populated experience" classname="demo\demo-data.spec.js" time="2.245">
+</testcase>
+<testcase name="seeded author and admin accounts both open into meaningful workspaces" classname="demo\demo-data.spec.js" time="3.811">
+</testcase>
+</testsuite>
+</testsuites>

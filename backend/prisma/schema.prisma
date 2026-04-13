@@ -1,0 +1,183 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  READER
+  AUTHOR
+}
+
+enum NotificationType {
+  WELCOME
+  COMMENT_REPLY
+  ANNOUNCEMENT
+  MESSAGE
+  SYSTEM
+  FOLLOW
+  REVIEW
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}
+
+model User {
+  id                  Int            @id @default(autoincrement())
+  name                String
+  email               String         @unique
+  passwordHash        String         @map("password_hash")
+  role                Role           @default(READER)
+  bio                 String?        @db.Text
+  avatarUrl           String?        @map("avatar_url")
+  websiteUrl          String?        @map("website_url")
+  isFeaturedAuthor    Boolean        @default(false) @map("is_featured_author")
+  refreshTokenVersion Int            @default(0) @map("refresh_token_version")
+  createdAt           DateTime       @default(now()) @map("created_at")
+  updatedAt           DateTime       @updatedAt @map("updated_at")
+  comments            Comment[]
+  replies             Reply[]
+  notifications       Notification[]
+  sentMessages        Message[]      @relation("SentMessages")
+  receivedMessages    Message[]      @relation("ReceivedMessages")
+  favorites           Favorite[]
+  books               Book[]         @relation("BookAuthor")
+  reviews             Review[]
+  followingAuthors    Follow[]       @relation("AuthorFollowers")
+  authorFollowers     Follow[]       @relation("AuthorFollowing")
+
+  @@map("users")
+}
+
+model Book {
+  id               Int        @id @default(autoincrement())
+  authorId         Int        @map("author_id")
+  title            String
+  slug             String     @unique
+  genre            String     @default("General")
+  category         String     @default("General")
+  isFeatured       Boolean    @default(false) @map("is_featured")
+  shortDescription String     @map("short_description") @db.VarChar(255)
+  fullDescription  String     @map("full_description") @db.Text
+  coverImage       String?    @map("cover_image")
+  amazonUrl        String?    @map("amazon_url")
+  createdAt        DateTime   @default(now()) @map("created_at")
+  updatedAt        DateTime   @updatedAt @map("updated_at")
+  author           User       @relation("BookAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  comments         Comment[]
+  favorites        Favorite[]
+  reviews          Review[]
+
+  @@map("books")
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  userId    Int       @map("user_id")
+  bookId    Int       @map("book_id")
+  content   String    @db.Text
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book      Book      @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  replies   Reply[]
+
+  @@map("comments")
+}
+
+model Reply {
+  id        Int       @id @default(autoincrement())
+  commentId Int       @map("comment_id")
+  userId    Int       @map("user_id")
+  content   String    @db.Text
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  comment   Comment   @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("replies")
+}
+
+model Notification {
+  id        Int              @id @default(autoincrement())
+  userId    Int              @map("user_id")
+  type      NotificationType
+  title     String
+  message   String           @db.Text
+  isRead    Boolean          @default(false) @map("is_read")
+  createdAt DateTime         @default(now()) @map("created_at")
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model Announcement {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String    @db.Text
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  @@map("announcements")
+}
+
+model Message {
+  id         Int           @id @default(autoincrement())
+  senderId   Int           @map("sender_id")
+  receiverId Int           @map("receiver_id")
+  subject    String?
+  content    String        @db.Text
+  status     MessageStatus @default(UNREAD)
+  createdAt  DateTime      @default(now()) @map("created_at")
+  updatedAt  DateTime      @updatedAt @map("updated_at")
+  sender     User          @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver   User          @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+model Favorite {
+  id        Int       @id @default(autoincrement())
+  userId    Int       @map("user_id")
+  bookId    Int       @map("book_id")
+  createdAt DateTime  @default(now()) @map("created_at")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book      Book      @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@map("favorites")
+}
+
+model Follow {
+  id          Int      @id @default(autoincrement())
+  followerId  Int      @map("follower_id")
+  followingId Int      @map("following_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  follower    User     @relation("AuthorFollowers", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("AuthorFollowing", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@map("follows")
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  bookId    Int      @map("book_id")
+  rating    Int
+  content   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book      Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@map("reviews")
+}

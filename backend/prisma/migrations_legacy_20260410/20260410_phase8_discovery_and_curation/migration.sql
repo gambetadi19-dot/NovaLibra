@@ -1,0 +1,7 @@
+ALTER TABLE `users`
+  ADD COLUMN `is_featured_author` BOOLEAN NOT NULL DEFAULT false;
+
+ALTER TABLE `books`
+  ADD COLUMN `genre` VARCHAR(120) NOT NULL DEFAULT 'General',
+  ADD COLUMN `category` VARCHAR(120) NOT NULL DEFAULT 'General',
+  ADD COLUMN `is_featured` BOOLEAN NOT NULL DEFAULT false;

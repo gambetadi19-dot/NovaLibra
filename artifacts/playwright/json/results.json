@@ -1,0 +1,194 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\gambe\\OneDrive\\Desktop\\NovaLibra\\playwright.config.js",
+    "rootDir": "C:/Users/gambe/OneDrive/Desktop/NovaLibra/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/gambe/OneDrive/Desktop/NovaLibra/artifacts/playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/gambe/OneDrive/Desktop/NovaLibra/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "./artifacts/playwright/html-report"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "./artifacts/playwright/junit/results.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./artifacts/playwright/json/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 10,
+      "threshold": 15000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "demo\\demo-data.spec.js",
+      "file": "demo/demo-data.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "public seeded content makes the homepage and discovery views feel demo-ready",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-13T22:27:56.605Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ea2a204ab5ede34dc70-b9e36643b18cd814e134",
+          "file": "demo/demo-data.spec.js",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "seeded reader account lands in a populated experience",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2245,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-13T22:27:59.109Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ea2a204ab5ede34dc70-95da3348c1ac17754788",
+          "file": "demo/demo-data.spec.js",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "seeded author and admin accounts both open into meaningful workspaces",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3811,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-13T22:28:01.366Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ea2a204ab5ede34dc70-dc01bb0fb4ecdde7c194",
+          "file": "demo/demo-data.spec.js",
+          "line": 36,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-13T22:27:53.109Z",
+    "duration": 12410.136,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

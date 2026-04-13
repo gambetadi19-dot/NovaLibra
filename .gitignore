@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.local
+backend/generated/
+frontend/.vite/
+coverage/
+*.log
+prisma/dev.db
+.edge-qa/
