@@ -2,6 +2,7 @@ import http from 'http';
 import { Server } from 'socket.io';
 import { app } from './app.js';
 import { env } from './config/env.js';
+import { prisma } from './config/db.js';
 import { registerSocketHandlers } from './sockets/index.js';
 import { setSocketServer } from './services/socketService.js';
 
