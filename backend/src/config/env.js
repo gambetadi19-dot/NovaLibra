@@ -10,10 +10,20 @@ for (const key of required) {
   }
 }
 
+function parseAllowedOrigins(value) {
+  return String(value || '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+const clientOrigins = parseAllowedOrigins(process.env.CLIENT_URL);
+
 export const env = {
   port: Number(process.env.PORT || 5000),
   nodeEnv: process.env.NODE_ENV || 'development',
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  clientUrl: clientOrigins[0] || 'http://localhost:5173',
+  clientOrigins: clientOrigins.length ? clientOrigins : ['http://localhost:5173'],
   databaseUrl: process.env.DATABASE_URL,
   jwtAccessSecret: process.env.JWT_ACCESS_SECRET,
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,

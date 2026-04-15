@@ -9,9 +9,31 @@ import { verifyAccessToken } from './utils/token.js';
 
 export const app = express();
 
+function isAllowedOrigin(origin) {
+  if (!origin) {
+    return true;
+  }
+
+  if (env.clientOrigins.includes(origin)) {
+    return true;
+  }
+
+  if (env.nodeEnv === 'production') {
+    return /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin);
+  }
+
+  return /^http:\/\/localhost:\d+$/i.test(origin);
+}
+
 app.use(
   cors({
-    origin: env.clientUrl,
+    origin(origin, callback) {
+      if (isAllowedOrigin(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     credentials: true
   })
 );

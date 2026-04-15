@@ -9,7 +9,7 @@ import { setSocketServer } from './services/socketService.js';
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: env.clientUrl,
+    origin: env.clientOrigins,
     credentials: true
   }
 });
